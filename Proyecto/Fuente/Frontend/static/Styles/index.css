@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(83, 10, 74);
+    color: white;
+    padding: 10px;
+}
+
+#menu-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+}
+
+#menu-button:hover + #menu-dropdown {
+    display: block;
+}
+
+#user-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+#user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightblue;
+    background-size: cover;
+    background-position: center;
+}
+
+#chat-container {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-left: 5px solid rgb(122, 38, 38);
+    border-top: 5px solid rgb(122, 38, 38);
+    background-color: #f9f9f9;
+    margin: 10px;
+}
+
+.mensaje {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+}
+
+/* Contenedor del header del mensaje */
+.message-header {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para que imagen y nombre estén uno debajo del otro */
+    align-items: center;
+    margin-right: 15px;
+}
+
+/* Contenedor de la imagen y el nombre */
+.avatar-container {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para que la imagen esté arriba y el nombre abajo */
+    align-items: center; /* Centrado del contenido */
+    margin-right: 15px;
+}
+
+/* Foto de usuario */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightblue;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Nombre debajo de la foto */
+.message-name {
+    margin-top: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Contenedor del contenido del mensaje */
+.message-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Contenedor del texto del mensaje */
+.message-text {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    margin-top: 5px;
+}
+
+#input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-left: 5px solid rgb(122, 38, 38);
+    background-color: #f9f9f9;
+}
+
+#prompt {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#send-button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #0056b3;
+}
