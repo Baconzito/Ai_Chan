@@ -1,0 +1,8 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {},
+  "runArgs": [
+    "-e", "JWT_KEY=${{ secrets.JWT_KEY }}"
+  ]
+  
+}
