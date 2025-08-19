@@ -4,6 +4,8 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    overflow: hidden; /* Evita scroll horizontal cuando el menú está abierto */
+    position: relative;
 }
 
 #top-bar {
@@ -13,6 +15,9 @@ body {
     background-color: rgb(83, 10, 74);
     color: white;
     padding: 10px;
+    z-index: 99;
+    position: sticky;
+    top: 0;
 }
 
 #menu-button {
@@ -24,19 +29,50 @@ body {
     border-radius: 4px;
 }
 
-#menu-dropdown {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 10px;
+#main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    transition: margin-left 0.3s ease;
+    position: relative;
+    min-height: 100vh;
     background-color: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 1;
 }
 
-#menu-button:hover + #menu-dropdown {
-    display: block;
+#main-content.menu-open {
+    margin-left: 300px; /* Empuja el chat a la derecha cuando el menú está abierto */
+}
+
+#menu-dropdown {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    border-right: 1px solid #ccc;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.08);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+#menu-dropdown.show {
+    left: 0;
+}
+
+#profile-mock {
+    margin-bottom: 10px;
+    flex-shrink: 0; /* Evita que el perfil se encoja */
+}
+
+.menu-content {
+    flex: 1;
+    overflow-y: auto;
 }
 
 #user-button {
@@ -151,4 +187,24 @@ body {
 
 #send-button:hover {
     background-color: #0056b3;
+}
+
+#logout-btn {
+    position: sticky;
+    bottom: 0;
+    margin: 20px auto 40px auto; /* Increased bottom margin from 20px to 40px */
+    width: 90%;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+#logout-btn:hover {
+    background: #c0392b;
 }
